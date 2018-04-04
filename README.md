@@ -7,11 +7,19 @@ handling each failure case individually.
 
 ### 1.1. Maven
 
-
+```xml
+<dependency>
+    <groupId>com.alancamargo.validationchain</groupId>
+    <artifactId>validation-chain</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 
 ### 1.2. Gradle
 
-
+```groovy
+implementation 'com.alancamargo.validationchain:validation-chain:1.0.0'
+```
 
 ## 2. Example
 
