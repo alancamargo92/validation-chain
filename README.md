@@ -11,14 +11,14 @@ handling each failure case individually.
 <dependency>
     <groupId>com.alancamargo.validationchain</groupId>
     <artifactId>validation-chain</artifactId>
-    <version>1.0.0</version>
+    <version>1.0</version>
 </dependency>
 ```
 
 ### 1.2. Gradle
 
 ```groovy
-implementation 'com.alancamargo.validationchain:validation-chain:1.0.0'
+implementation 'com.alancamargo.validationchain:validation-chain:1.0'
 ```
 
 ## 2. Example

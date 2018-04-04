@@ -4,6 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <name>Validation Chain</name>
 
+    <groupId>com.alancamargo.validationchain</groupId>
+    <artifactId>validation-chain</artifactId>
+    <version>1.0</version>
+    <packaging>jar</packaging>
+
     <properties>
         <kotlin.version>1.2.31</kotlin.version>
     </properties>
@@ -28,12 +33,6 @@
         </dependency>
 
     </dependencies>
-
-
-    <groupId>com.alancamargo.validationchain</groupId>
-    <artifactId>validation-chain</artifactId>
-    <version>1.0</version>
-    <packaging>jar</packaging>
 
     <build>
         <directory>target</directory>
