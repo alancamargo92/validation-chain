@@ -18,6 +18,12 @@ handling each failure case individually.
 ### 1.2. Gradle
 
 ```groovy
+repositories {
+    maven {
+        url  "https://dl.bintray.com/alancamargo92/validation-chain" 
+    }
+}
+
 implementation 'com.alancamargo.validationchain:validation-chain:1.0'
 ```
 
