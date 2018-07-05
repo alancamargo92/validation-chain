@@ -37,7 +37,7 @@ class ValidationChainTest {
         ValidationChain().add(a)
                 .add(b)
                 .add(c)
-                .addSuccessListener(object: ValidationChain.OnSuccessListener {
+                .setOnSuccessListener(object: ValidationChain.OnSuccessListener {
                     override fun onSuccess() {
                         fail()
                     }
@@ -57,13 +57,29 @@ class ValidationChainTest {
         ValidationChain().add(a)
                 .add(b)
                 .add(c)
-                .addSuccessListener(object: ValidationChain.OnSuccessListener {
+                .setOnSuccessListener(object: ValidationChain.OnSuccessListener {
                     override fun onSuccess() {
                         fail()
                     }
                 }).run()
 
         assertEquals(failCount, 3)
+    }
+
+    @Test
+    fun withInfixFunction_shouldFail0OutOf3Validations() {
+        var failCount = 0
+
+        val a = Validation(successCondition = true, onFailureAction = { failCount++ })
+        val b = Validation(successCondition = true, onFailureAction = { failCount++ })
+        val c = Validation(successCondition = true, onFailureAction = { failCount++ })
+
+        ValidationChain().add(a)
+                .add(b)
+                .add(c)
+                .run {
+                    assertEquals(failCount, 0)
+                }
     }
 
 }

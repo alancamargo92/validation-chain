@@ -27,11 +27,11 @@ class ValidationChain {
     }
 
     /**
-     * Adds a callback to be triggered if all validations pass
+     * Sets a callback to be triggered if all validations pass
      *
      * @param onSuccessListener the callback
      */
-    fun addSuccessListener(onSuccessListener: OnSuccessListener): ValidationChain {
+    fun setOnSuccessListener(onSuccessListener: OnSuccessListener): ValidationChain {
         this.onSuccessListener = onSuccessListener
         return this
     }
@@ -54,7 +54,32 @@ class ValidationChain {
         if (isValid) onSuccessListener?.onSuccess()
     }
 
+    /**
+     * Runs all validations in the chain.
+     * If none of them fail, then the success action
+     * will be triggered
+     *
+     * @param onSuccessAction the action to be triggered
+     *                        in case of success
+     */
+    infix fun run(onSuccessAction: () -> Unit) {
+        var isValid = true
+
+        for (validation in validations) {
+            if (!validation.successCondition) {
+                validation.onFailureAction()
+                isValid = false
+            }
+        }
+
+        if (isValid) onSuccessAction()
+    }
+
     interface OnSuccessListener {
+        /**
+         * Function triggered when a validation
+         * is successful
+         */
         fun onSuccess()
     }
 
